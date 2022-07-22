@@ -14,4 +14,18 @@ export class ServicesService {
   public getServices(): Observable<Services[]> {
     return this.http.get<Services[]>(`${this.apiServerUrl}/services`);
   }
+
+  //add services
+  public addServices(service: Services): Observable<Services> {
+    return this.http.post<Services>(`${this.apiServerUrl}/services`, service);
+  }
+
+  // public updateServices(id: any): Observable<Services> {
+  //   return this.http.put<Services>(
+  //     `${this.apiServerUrl}/services/${id}`);
+  // }
+
+  public deleteServices(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiServerUrl}/employee/delete/${id}`);
+  }
 }

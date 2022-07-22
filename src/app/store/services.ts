@@ -3,5 +3,5 @@ export interface Services {
   name: string;
   flightDate: string;
   description: string;
-  isActive: boolean;
+  isActive: string;
 }

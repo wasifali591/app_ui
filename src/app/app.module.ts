@@ -10,6 +10,7 @@ import { StaffComponent } from './components/staff/staff.component';
 import { ClientComponent } from './components/client/client.component';
 import { ServicesComponent } from './components/services/services.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     ClientComponent,
     ServicesComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
