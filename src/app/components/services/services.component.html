@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 d-flex justify-content-end">
+      <button>Add Service</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 ">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Flight Date</th>
+            <th scope="col">Description</th>
+            <th scope="col">Active</th>
+          </tr>
+        </thead>
+        <tbody>
+          <div *ngFor="let service of services " class="col-md-6 col-xl-3">
+            <tr>
+              <!-- <th scope="row">1</th> -->
+              <td>{{service.id}}</td>
+              <td>{{service.name}}</td>
+              <td>{{service.flightDate}}</td>
+              <td>{{service.description}}</td>
+              <td>{{service.isActive}}</td>
+              <td>
+                <span class="me-3" title="Edit">
+                  <i class="fa fa-pencil" style="color:#000;"></i>
+                </span>
+                <span title="Delete">
+                  <i class="fa fa-trash" aria-hidden="true" style="color:#000 ;"></i>
+                </span>
+              </td>
+            </tr>
+          </div>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
