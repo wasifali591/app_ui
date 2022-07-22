@@ -26,8 +26,8 @@ export class ServicesComponent implements OnInit {
 
   public getServices(): void {
     this.servicesService.getServices().subscribe(
-      (rsponse: Services[]) => {
-        this.services = rsponse;
+      (rsponse: any) => {
+        this.services = rsponse.payload;
       },
       (error: HttpErrorResponse) => {
         alert(error.message);

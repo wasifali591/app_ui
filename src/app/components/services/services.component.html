@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-12 d-flex justify-content-end">
-      <button (click)="onOpenModal(blankService, 'add')">Add Service</button>
+      <button class="btn btn-success" style="background: #6BC28A; color: white;" (click)="onOpenModal(blankService, 'add')">Add Service</button>
     </div>
   </div>
   <div class="row">
@@ -14,11 +14,12 @@
             <th scope="col">Flight Date</th>
             <th scope="col">Description</th>
             <th scope="col">Active</th>
+            <th scope="col">Operations</th>
           </tr>
         </thead>
         <tbody>
-          <div *ngFor="let service of services " class="col-md-6 col-xl-3">
-            <tr>
+          <!-- <div *ngFor="let service of services " class="col-md-6 col-xl-3"> -->
+            <tr *ngFor="let service of services">
               <!-- <th scope="row">1</th> -->
               <td>{{service.id}}</td>
               <td>{{service.name}}</td>
@@ -26,15 +27,15 @@
               <td>{{service.description}}</td>
               <td>{{service.isActive}}</td>
               <td>
-                <span class="me-3" title="Edit" click)="onOpenModal(service, 'edit')">
-                  <i class="fa fa-pencil" style="color:#000;"></i>
+                <span class="me-3" title="Edit" (click)="onOpenModal(service, 'edit')">
+                  <i class="fa fa-pencil" style="color:#6BC28A;"></i>
                 </span>
                 <span title="Delete" (click)="onOpenModal(service, 'delete')">
-                  <i class="fa fa-trash" aria-hidden="true" style="color:#000 ;"></i>
+                  <i class="fa fa-trash" aria-hidden="true" style="color:red;"></i>
                 </span>
               </td>
             </tr>
-          </div>
+          <!-- </div> -->
         </tbody>
       </table>
 

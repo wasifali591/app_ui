@@ -11,8 +11,8 @@ export class ServicesService {
   constructor(private http: HttpClient) {}
 
   //Get all services
-  public getServices(): Observable<Services[]> {
-    return this.http.get<Services[]>(`${this.apiServerUrl}/services`);
+  public getServices(): Observable<any> {
+    return this.http.get<any>(`${this.apiServerUrl}/services`);
   }
 
   //add services
