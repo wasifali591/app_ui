@@ -81,15 +81,15 @@ export class ServicesComponent implements OnInit {
     button.setAttribute('data-toggle', 'modal');
 
     if (mode === 'add') {
-      button.setAttribute('data-target', '#addEmployeeModal');
+      button.setAttribute('data-target', '#addServiceModal');
     }
     if (mode === 'edit') {
       this.editService = services;
-      button.setAttribute('data-target', '#updateEmployeeModal');
+      button.setAttribute('data-target', '#updateServiceModal');
     }
     if (mode === 'delete') {
       this.deleteService = services;
-      button.setAttribute('data-target', '#deleteEmployeeModal');
+      button.setAttribute('data-target', '#deleteServiceModal');
     }
 
     container?.appendChild(button);
