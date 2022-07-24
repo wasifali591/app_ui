@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="main-container">
   <div class="row">
     <div class="col-12 d-flex justify-content-end">
       <button class="btn btn-success" style="background: #6BC28A; color: white;" (click)="onOpenModal(blankService, 'add')">Add Service</button>
@@ -62,26 +62,16 @@
             <input type="text" ngModel name="name" class="form-control" id="name" placeholder="Name" required>
           </div>
           <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" ngModel name="email" class="form-control" id="email" placeholder="Email" required>
+            <label for="flightDate">Flight Date</label>
+            <input type="date" ngModel name="flightDate" class="form-control" id="flightDate" placeholder="Flight Date" required>
           </div>
           <div class="form-group">
-            <label for="phone">Job title</label>
-            <input type="text" ngModel name="jobTitle" class="form-control" id="jobTile" placeholder="Job title"
-              required>
-          </div>
-          <div class="form-group">
-            <label for="phone">Phone</label>
-            <input type="text" ngModel name="phone" class="form-control" id="phone" placeholder="Phone" required>
-          </div>
-          <div class="form-group">
-            <label for="phone">Image URL</label>
-            <input type="text" ngModel name="imageUrl" class="form-control" id="imageUrl" placeholder="Image URL"
-              required>
+            <label for="description">Description</label>
+            <input type="text" ngModel name="description" class="form-control" id="description" placeholder="Description">
           </div>
           <div class="modal-footer">
-            <button type="button" id="add-employee-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">Save changes</button>
+            <button type="button" id="add-service-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button [disabled]="addForm.invalid" type="submit" class="btn btn-success">Save changes</button>
           </div>
         </form>
       </div>
@@ -95,46 +85,38 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="updateEmployeeModalLabel">Edit Employee {{editService?.name}}</h5>
+        <h5 class="modal-title" id="updateEmployeeModalLabel">Edit Service - {{editService?.name}}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <form #editForm="ngForm">
+          <input type="hidden" ngModel="{{editService?.id}}" name="id" class="form-control" id="id" placeholder="Id">
           <div class="form-group">
             <label for="name">Name</label>
             <input type="text" ngModel="{{editService?.name}}" name="name" class="form-control" id="name"
               aria-describedby="emailHelp" placeholder="Name">
           </div>
-          <input type="hidden" ngModel="{{editService?.id}}" name="id" class="form-control" id="id" placeholder="Email">
-          <input type="hidden" ngModel="{{editService?.id}}" name="userCode" class="form-control" id="userCode"
-            placeholder="Email">
           <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" ngModel="{{editService?.name}}" name="name" class="form-control" id="email"
-              placeholder="Email">
+            <label for="flightDate">Flight Date</label>
+            <input type="date" ngModel="{{editService?.flightDate}}" name="flightDate" class="form-control" id="flightDate" placeholder="Flight Date" required>
           </div>
           <div class="form-group">
-            <label for="phone">Job title</label>
-            <input type="text" ngModel="{{editService?.flightDate}}" name="flightDate" class="form-control"
-              id="jobTitle" placeholder="Job title">
+            <label for="description">Description</label>
+            <input type="text" ngModel="{{editService?.description}}" name="description" class="form-control" id="description" placeholder="Description">
           </div>
           <div class="form-group">
-            <label for="phone">Phone</label>
-            <input type="text" ngModel="{{editService?.description}}" name="description" class="form-control" id="phone"
-              name="phone" placeholder="Phone">
-          </div>
-          <div class="form-group">
-            <label for="phone">Image URL</label>
-            <input type="text" ngModel="{{editService?.isActive}}" name="isActive" class="form-control" id="imageUrl"
-              placeholder="Image URL">
+            <label for="isActive">Active</label>
+            <select name="isActive" class="form-control" id="isActive">
+              <option value="true">True</option>
+              <option value="false">False</option>
+            </select>
+
           </div>
           <div class="modal-footer">
             <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
-            <button  data-dismiss="modal" class="btn btn-primary">Save
-              changes</button>
-              <!-- (click)="onUpdateServices(editForm.value)" -->
+            <button (click)="onUpdateServices(editForm.value.id, editForm.value)" data-dismiss="modal" class="btn btn-success">Save changes</button>
           </div>
         </form>
       </div>
@@ -148,13 +130,13 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="deleteModelLabel">Delete Employee</h5>
+        <h5 class="modal-title" id="deleteModelLabel">Delete Service</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <p>Are you sure you want to delete employee {{deleteService?.name}}?</p>
+        <p>Are you sure you want to delete service {{deleteService?.name}}?</p>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
           <button (click)="onDeleteServices(deleteService.id)" class="btn btn-danger" data-dismiss="modal">Yes</button>

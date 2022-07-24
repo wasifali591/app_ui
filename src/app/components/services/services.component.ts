@@ -35,7 +35,7 @@ export class ServicesComponent implements OnInit {
     );
   }
   public onAddServices(addForm: NgForm): void {
-    document.getElementById('add-employee-form')?.click();
+    document.getElementById('add-service-form')?.click();
     this.servicesService.addServices(addForm.value).subscribe(
       (response: Services) => {
         // console.log(response);
@@ -49,22 +49,20 @@ export class ServicesComponent implements OnInit {
     );
   }
 
-  // public onUpdateServices(employee: Services): void {
-  //   this.servicesService.updateServices(employee).subscribe(
-  //     (response: Services) => {
-  //       // console.log(response);
-  //       this.getServices();
-  //     },
-  //     (error: HttpErrorResponse) => {
-  //       alert(error.message);
-  //     }
-  //   );
-  // }
+  public onUpdateServices(id: Number, service: Services): void {
+    this.servicesService.updateServices(id, service).subscribe(
+      (response: Services) => {
+        this.getServices();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
 
   public onDeleteServices(id: number): void {
     this.servicesService.deleteServices(id).subscribe(
       (response: void) => {
-        // console.log(response);
         this.getServices();
       },
       (error: HttpErrorResponse) => {

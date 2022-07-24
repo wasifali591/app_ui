@@ -20,12 +20,11 @@ export class ServicesService {
     return this.http.post<Services>(`${this.apiServerUrl}/services`, service);
   }
 
-  // public updateServices(id: any): Observable<Services> {
-  //   return this.http.put<Services>(
-  //     `${this.apiServerUrl}/services/${id}`);
-  // }
+  public updateServices(id: Number, service: Services): Observable<Services> {
+    return this.http.put<Services>(`${this.apiServerUrl}/services/${id}`, service);
+  }
 
   public deleteServices(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiServerUrl}/employee/delete/${id}`);
+    return this.http.delete<void>(`${this.apiServerUrl}/services/${id}`);
   }
 }
